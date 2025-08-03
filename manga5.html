@@ -13,43 +13,41 @@
         function showManga(chapter) {
             currentChapter = chapter;
             const pdfContainer = document.getElementById('pdf-container');
-            pdfContainer.innerHTML = ''; // Clear previous content
-            pdfContainer.style.display = 'block'; // Show the manga container
+            pdfContainer.innerHTML = '';
+            pdfContainer.style.display = 'block';
 
             let images = [];
 
-            // Manually listing 20 images per chapter
             if (chapter === 1) {
                 images = [
-                    "deathnote/chapter1/dnc1_page-0001.jpg", "deathnote/chapter1/dnc1_page-0002.jpg",
-                    "deathnote/chapter1/dnc1_page-0003.jpg", "deathnote/chapter1/dnc1_page-0004.jpg",
-                    "deathnote/chapter1/dnc1_page-0005.jpg"
+                    "dnc1_page-0001.jpg", "dnc1_page-0002.jpg",
+                    "dnc1_page-0003.jpg", "dnc1_page-0004.jpg",
+                    "dnc1_page-0005.jpg"
                 ];
             } else if (chapter === 2) {
                 images = [
-                    "deathnote/chapter2/dnc1_page-0021.jpg", "deathnote/chapter2/dnc1_page-0022.jpg",
-                    "deathnote/chapter2/dnc1_page-0023.jpg", "deathnote/chapter2/dnc1_page-0024.jpg",
-                    "deathnote/chapter2/dnc1_page-0025.jpg"
+                    "dnc1_page-0021.jpg", "dnc1_page-0022.jpg",
+                    "dnc1_page-0023.jpg", "dnc1_page-0024.jpg",
+                    "dnc1_page-0025.jpg"
                 ];
             } else if (chapter === 3) {
                 images = [
-                    "deathnote/chapter3/dnc1_page-0041.jpg", "deathnote/chapter3/dnc1_page-0042.jpg",
-                    "deathnote/chapter3/dnc1_page-0043.jpg", "deathnote/chapter3/dnc1_page-0044.jpg",
-                    "deathnote/chapter3/dnc1_page-0045.jpg", "deathnote/chapter3/dnc1_page-0046.jpg"
+                    "dnc1_page-0041.jpg", "dnc1_page-0042.jpg",
+                    "dnc1_page-0043.jpg", "dnc1_page-0044.jpg",
+                    "dnc1_page-0045.jpg", "dnc1_page-0046.jpg"
                 ];
             }
 
             images.forEach(src => {
                 let img = document.createElement("img");
                 img.src = src;
-                img.alt = `Manga Page`;
+                img.alt = "Manga Page";
                 img.style.width = "100%";
                 img.style.maxWidth = "800px";
                 img.style.margin = "10px auto";
                 pdfContainer.appendChild(img);
             });
 
-            // Add Chapter Navigation Buttons
             const navContainer = document.createElement("div");
             navContainer.style.display = "flex";
             navContainer.style.justifyContent = "space-between";
@@ -74,8 +72,8 @@
 <body>
     <div class="container">
         <div class="image-section">
-            <img src="mangacover/manga5.jpg" alt="Akane-banashi Cover">
-         
+            <img src="manga5.jpg" alt="One Piece Cover">
+
             <section class="chapters">
                 <button onclick="showManga(1)">Read Chapter 1</button><br><br>
                 <button onclick="showManga(2)">Read Chapter 2</button><br><br>
@@ -86,9 +84,10 @@
             <h1>ONE PIECE</h1>
             <fieldset>
                 <legend>Summary</legend>
-                <h3><p class="summary"> In a world where pirates roam the seas in search of the legendary One Piece, a treasure left behind by the former Pirate King Gol D. Roger, a young boy named Monkey D. Luffy dreams of becoming the next Pirate King.
-                    Unlike other pirates, Luffy isn't after wealth or power—he seeks ultimate freedom. After eating the Gomu Gomu no Mi, a Devil Fruit that turns his body into rubber, Luffy gains incredible abilities but loses his ability to swim.</p>
-                </h3>            
+                <h3><p class="summary">
+                    In a world where pirates roam the seas in search of the legendary One Piece, a treasure left behind by the former Pirate King Gol D. Roger, a young boy named Monkey D. Luffy dreams of becoming the next Pirate King.
+                    Unlike other pirates, Luffy isn't after wealth or power—he seeks ultimate freedom. After eating the Gomu Gomu no Mi, a Devil Fruit that turns his body into rubber, Luffy gains incredible abilities but loses his ability to swim.
+                </p></h3>
             </fieldset>
             <div id="pdf-container"></div>
         </div>
