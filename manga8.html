@@ -3,56 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akane-banashi</title>
+    <title>Hunter x Hunter</title>
     <link rel="stylesheet" href="manga1.css">
 
     <script>
         let currentChapter = 1;
-        const totalChapters = 5;
+        const totalChapters = 3;
 
         function showManga(chapter) {
             currentChapter = chapter;
             const pdfContainer = document.getElementById('pdf-container');
-            pdfContainer.innerHTML = ''; // Clear previous content
-            pdfContainer.style.display = 'block'; // Show the manga container
+            pdfContainer.innerHTML = '';
+            pdfContainer.style.display = 'block';
 
             let images = [];
 
-            // Manually listing 20 images per chapter
             if (chapter === 1) {
                 images = [
-                    "jjk/1.png", "jjk/2.png",
-                    "jjk/3.png", "jjk/4.png",
-                    "jjk/5.png", "jjk/6.png",
-                    "jjk/7.png"
+                    "1.png", "2.png", "3.png",
+                    "4.png", "5.png", "6.png", "7.png"
                 ];
             } else if (chapter === 2) {
                 images = [
-                    "jjk/8.png", "jjk/9.png",
-                    "jjk/10.png", "jjk/11.png",
-                    "jjk/12.png", "jjk/13.png",
-                    "jjk/14.png"
+                    "8.png", "9.png", "10.png",
+                    "11.png", "12.png", "13.png", "14.png"
                 ];
             } else if (chapter === 3) {
                 images = [
-                    "jjk/15.png", "jjk/16.png",
-                    "jjk/17.png", "jjk/18.png",
-                    "jjk/19.png", "jjk/20.png",
-                    "jjk/21.png"
+                    "15.png", "16.png", "17.png",
+                    "18.png", "19.png", "20.png", "21.png"
                 ];
             }
 
             images.forEach(src => {
                 let img = document.createElement("img");
                 img.src = src;
-                img.alt = `Manga Page`;
+                img.alt = "Manga Page";
                 img.style.width = "100%";
                 img.style.maxWidth = "800px";
                 img.style.margin = "10px auto";
                 pdfContainer.appendChild(img);
             });
 
-            // Add Chapter Navigation Buttons
             const navContainer = document.createElement("div");
             navContainer.style.display = "flex";
             navContainer.style.justifyContent = "space-between";
@@ -77,7 +69,7 @@
 <body>
     <div class="container">
         <div class="image-section">
-            <img src="mangacover/manga8.jpg" alt="Akane-banashi Cover">
+            <img src="manga8.jpg" alt="Hunter x Hunter Cover">
             
             <section class="chapters">
                 <button onclick="showManga(1)">Read Chapter 1</button><br><br>
@@ -86,10 +78,13 @@
             </section>
         </div>
         <div class="content-section">
-            <h1>HUNTERxHUNTER</h1>
+            <h1>HUNTER x HUNTER</h1>
             <fieldset>
                 <legend>Summary</legend>
-                <h3><p class="summary"> In a world where Hunters are elite individuals who explore uncharted lands, track down criminals, and uncover ancient secrets, a young boy named Gon Freecss dreams of becoming a Hunter. His motivation? To find his father, Ging Freecss, a legendary Hunter who abandoned him as a baby to pursue his dreams.</p>
+                <h3>
+                    <p class="summary">
+                        In a world where Hunters are elite individuals who explore uncharted lands, track down criminals, and uncover ancient secrets, a young boy named Gon Freecss dreams of becoming a Hunter. His motivation? To find his father, Ging Freecss, a legendary Hunter who abandoned him as a baby to pursue his dreams.
+                    </p>
                 </h3>            
             </fieldset>
             <div id="pdf-container"></div>
