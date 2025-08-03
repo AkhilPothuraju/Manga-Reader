@@ -1,0 +1,80 @@
+.logo img {
+    height: 70px; 
+    width: 120px;
+    margin: 0px;
+}
+/* Navbar */
+.navbar {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+}
+.navbar a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    float: left;
+}
+.navbar a:hover {
+    color: rgba(139, 0, 0, 0.647);
+}
+body {
+    margin: 0px;
+    background-color: rgb(0, 0, 0);
+}
+/* Top Navigation Bar */
+.navbar {
+    background: linear-gradient(to right, black, rgba(139, 0, 0, 0.647));
+    color: white;
+    display: flex;
+    align-items: center;
+    text-decoration: none; 
+    justify-content: space-between; 
+}
+/* Navigation Menus */
+.menu, .nmenu {
+    display: flex;
+    gap: 50px;
+    font-size: 20px;
+    align-items: center;
+}
+/* Main Content */
+.main {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    padding: 5px;
+}
+/* Manga Grid Container */
+.manga-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 manga per row */
+    gap: 12px; /* Reduced spacing */
+    justify-content: center;
+    padding: 10px;
+}
+/* Manga Item */
+.manga-item {
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.2s ease-in-out;
+    padding: 5px;
+    max-width: 350px; /* Increased width */
+}
+/* Manga Image */
+.manga-item img {
+    width: 100%;
+    height: auto;
+    max-width: 250px; /* Increased cover size */
+    border-radius: 5px;
+}
+/* Hover Effect */
+.manga-item:hover {
+    transform: scale(1.25);
+}
+/* Reduce space under text */
+.manga-item p {
+    margin: 3px 0;
+}
+

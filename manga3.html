@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akane-banashi</title>
+    <link rel="stylesheet" href="manga1.css">
+
+    <script>
+        let currentChapter = 1;
+        const totalChapters = 5;
+
+        function showManga(chapter) {
+            currentChapter = chapter;
+            const pdfContainer = document.getElementById('pdf-container');
+            pdfContainer.innerHTML = ''; // Clear previous content
+            pdfContainer.style.display = 'block'; // Show the manga container
+
+            let images = [];
+
+            // Manually listing 20 images per chapter
+            if (chapter === 1) {
+                images = [
+                    "jjk/1.png", "jjk/2.png",
+                    "jjk/3.png", "jjk/4.png",
+                    "jjk/5.png", "jjk/6.png",
+                    "jjk/7.png"
+                ];
+            } else if (chapter === 2) {
+                images = [
+                    "jjk/8.png", "jjk/9.png",
+                    "jjk/10.png", "jjk/11.png",
+                    "jjk/12.png", "jjk/13.png",
+                    "jjk/14.png"
+                ];
+            } else if (chapter === 3) {
+                images = [
+                    "jjk/15.png", "jjk/16.png",
+                    "jjk/17.png", "jjk/18.png",
+                    "jjk/19.png", "jjk/20.png",
+                    "jjk/21.png"
+                ];
+            }
+
+            images.forEach(src => {
+                let img = document.createElement("img");
+                img.src = src;
+                img.alt = `Manga Page`;
+                img.style.width = "100%";
+                img.style.maxWidth = "800px";
+                img.style.margin = "10px auto";
+                pdfContainer.appendChild(img);
+            });
+
+            // Add Chapter Navigation Buttons
+            const navContainer = document.createElement("div");
+            navContainer.style.display = "flex";
+            navContainer.style.justifyContent = "space-between";
+            navContainer.style.marginTop = "10px";
+
+            const prevChapterBtn = document.createElement("button");
+            prevChapterBtn.innerText = "Previous Chapter";
+            prevChapterBtn.onclick = () => showManga(currentChapter - 1);
+            prevChapterBtn.disabled = currentChapter === 1;
+
+            const nextChapterBtn = document.createElement("button");
+            nextChapterBtn.innerText = "Next Chapter";
+            nextChapterBtn.onclick = () => showManga(currentChapter + 1);
+            nextChapterBtn.disabled = currentChapter === totalChapters;
+
+            navContainer.appendChild(prevChapterBtn);
+            navContainer.appendChild(nextChapterBtn);
+            pdfContainer.appendChild(navContainer);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="image-section">
+            <img src="mangacover/manga3.jpg" alt="Akane-banashi Cover">
+            
+            <section class="chapters">
+                <button onclick="showManga(1)">Read Chapter 1</button><br><br>
+                <button onclick="showManga(2)">Read Chapter 2</button><br><br>
+                <button onclick="showManga(3)">Read Chapter 3</button><br>
+            </section>
+        </div>
+        <div class="content-section">
+            <h1>JJK</h1>
+            <fieldset>
+                <legend>Summary</legend>
+                <h3><p class="summary"> In a world where cursed spirits feed on humans, Yuji Itadori, a kind-hearted high schooler with immense physical strength, stumbles upon a dangerous cursed object—a finger belonging to Ryomen Sukuna, the King of Curses. When his friends are attacked by curses, Yuji swallows the finger to protect them, unknowingly becoming Sukuna’s vessel.
+                </h3>            
+            </fieldset>
+            <div id="pdf-container"></div>
+        </div>
+    </div>
+</body>
+</html>

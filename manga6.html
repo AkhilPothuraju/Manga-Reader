@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akane-banashi</title>
+    <link rel="stylesheet" href="manga1.css">
+
+    <script>
+        let currentChapter = 1;
+        const totalChapters = 5;
+
+        function showManga(chapter) {
+            currentChapter = chapter;
+            const pdfContainer = document.getElementById('pdf-container');
+            pdfContainer.innerHTML = ''; // Clear previous content
+            pdfContainer.style.display = 'block'; // Show the manga container
+
+            let images = [];
+
+            // Manually listing 20 images per chapter
+            if (chapter === 1) {
+                images = [
+                    "nar/15.jpg", 
+                    "nar/17.jpg", "nar/18.jpg",
+                    "nar/19.jpg", "nar/20.jpg",
+                    "nar/21.jpg", "nar/22.jpg", "nar/23.jpg",
+                    "nar/24.jpg"
+                ];
+            } else if (chapter === 2) {
+                images = [
+                "jjk/8.png", "jjk/9.png",
+                    "jjk/10.png", "jjk/11.png",
+                    "jjk/12.png", "jjk/13.png",
+                    "jjk/14.png"
+                ];
+            } else if (chapter === 3) {
+                images = [
+                    "deathnote/chapter3/dnc1_page-0041.jpg", "deathnote/chapter3/dnc1_page-0042.jpg",
+                    "deathnote/chapter3/dnc1_page-0043.jpg", "deathnote/chapter3/dnc1_page-0044.jpg",
+                    "deathnote/chapter3/dnc1_page-0045.jpg"
+                ];
+            }
+
+            images.forEach(src => {
+                let img = document.createElement("img");
+                img.src = src;
+                img.alt = `Manga Page`;
+                img.style.width = "100%";
+                img.style.maxWidth = "800px";
+                img.style.margin = "10px auto";
+                pdfContainer.appendChild(img);
+            });
+
+            // Add Chapter Navigation Buttons
+            const navContainer = document.createElement("div");
+            navContainer.style.display = "flex";
+            navContainer.style.justifyContent = "space-between";
+            navContainer.style.marginTop = "10px";
+
+            const prevChapterBtn = document.createElement("button");
+            prevChapterBtn.innerText = "Previous Chapter";
+            prevChapterBtn.onclick = () => showManga(currentChapter - 1);
+            prevChapterBtn.disabled = currentChapter === 1;
+
+            const nextChapterBtn = document.createElement("button");
+            nextChapterBtn.innerText = "Next Chapter";
+            nextChapterBtn.onclick = () => showManga(currentChapter + 1);
+            nextChapterBtn.disabled = currentChapter === totalChapters;
+
+            navContainer.appendChild(prevChapterBtn);
+            navContainer.appendChild(nextChapterBtn);
+            pdfContainer.appendChild(navContainer);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="image-section">
+            <img src="mangacover/manga6.jpg" alt="Akane-banashi Cover">
+            
+            <section class="chapters">
+                <button onclick="showManga(1)">Read Chapter 1</button><br><br>
+                <button onclick="showManga(2)">Read Chapter 2</button><br><br>
+                <button onclick="showManga(3)">Read Chapter 3</button><br>
+            </section>
+        </div>
+        <div class="content-section">
+            <h1>ATTACK ON TITAN</h1>
+            <fieldset>
+                <legend>Summary</legend>
+                <h3><p class="summary">For over a century, humanity has lived behind three massive walls to protect themselves from the Titans, monstrous humanoid creatures that devour humans. Inside the walls, people have lived in fear and ignorance of what lies beyond.
+                    Everything changes when the Colossal Titan appears and breaches the outermost Wall Maria, allowing Titans to flood in and destroy Eren Yeager’s hometown, killing his mother in front of him. Fueled by rage and revenge, Eren joins the Survey Corps alongside his childhood friends Mikasa Ackerman and Armin Arlert to fight against the Titans and reclaim humanity’s freedom.</p>
+                </h3>            
+            </fieldset>
+            <div id="pdf-container"></div>
+        </div>
+    </div>
+</body>
+</html>

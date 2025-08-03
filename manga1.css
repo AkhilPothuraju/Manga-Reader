@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Times, sans-serif;
+    background-color: #121212;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background: #1e1e1e;
+}
+
+.image-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    padding: 10px;
+}
+
+.image-section img {
+    max-width: 100%;
+    max-height: 80vh;
+    display: block;
+}
+
+.content-section {
+    width: 70%;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+.authors {
+    color: #bbb;
+    font-size: 14px;
+}
+
+.summary {
+    margin-top: 10px;
+    text-align: center;
+}
+
+fieldset {
+    border: 4px solid #852502;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 20px;
+    width: 80%;
+    text-align: left;
+}
+button:hover{
+    background: #e03f00c0;
+}
+button {
+    background: #ff4500;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Manga Image Display */
+#pdf-container {
+    width: 100%;
+    height: 100vh;
+    display: none;
+    text-align: center;
+    overflow-y: auto;
+}
+
+#pdf-container img {
+    width: 100%;
+    height: auto;
+    max-height: 90vh;
+    object-fit: contain;
+    margin-bottom: 10px;
+}

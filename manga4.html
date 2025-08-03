@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akane-banashi</title>
+    <link rel="stylesheet" href="manga1.css">
+
+    <script>
+        let currentChapter = 1;
+        const totalChapters = 5;
+
+        function showManga(chapter) {
+            currentChapter = chapter;
+            const pdfContainer = document.getElementById('pdf-container');
+            pdfContainer.innerHTML = ''; // Clear previous content
+            pdfContainer.style.display = 'block'; // Show the manga container
+
+            let images = [];
+
+            // Manually listing 20 images per chapter
+            if (chapter === 1) {
+                images = [
+                    "nar/1.jpg", "nar/2.jpg",
+                    "nar/3.jpg", "nar/4.jpg",
+                    "nar/5.jpg", "nar/6.jpg"
+                ];
+            } else if (chapter === 2) {
+                images = [
+                    "nar/15.jpg", 
+                    "nar/17.jpg", "nar/18.jpg",
+                    "nar/19.jpg", "nar/20.jpg",
+                    "nar/21.jpg", "nar/22.jpg", "nar/23.jpg",
+                    "nar/24.jpg"
+                ];
+            } else if (chapter === 3) {
+                images = [
+                    "nar/29.jpg",  "nar/32.jpg",
+                    "nar/33.jpg", "nar/34.jpg",
+                    "nar/35.jpg"
+                ];
+            }
+
+            images.forEach(src => {
+                let img = document.createElement("img");
+                img.src = src;
+                img.alt = `Manga Page`;
+                img.style.width = "100%";
+                img.style.maxWidth = "800px";
+                img.style.margin = "10px auto";
+                pdfContainer.appendChild(img);
+            });
+
+            // Add Chapter Navigation Buttons
+            const navContainer = document.createElement("div");
+            navContainer.style.display = "flex";
+            navContainer.style.justifyContent = "space-between";
+            navContainer.style.marginTop = "10px";
+
+            const prevChapterBtn = document.createElement("button");
+            prevChapterBtn.innerText = "Previous Chapter";
+            prevChapterBtn.onclick = () => showManga(currentChapter - 1);
+            prevChapterBtn.disabled = currentChapter === 1;
+
+            const nextChapterBtn = document.createElement("button");
+            nextChapterBtn.innerText = "Next Chapter";
+            nextChapterBtn.onclick = () => showManga(currentChapter + 1);
+            nextChapterBtn.disabled = currentChapter === totalChapters;
+
+            navContainer.appendChild(prevChapterBtn);
+            navContainer.appendChild(nextChapterBtn);
+            pdfContainer.appendChild(navContainer);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="image-section">
+            <img src="mangacover/manga4.jpg" alt="Akane-banashi Cover">
+         
+            <section class="chapters">
+                <button onclick="showManga(1)">Read Chapter 1</button><br><br>
+                <button onclick="showManga(2)">Read Chapter 2</button><br><br>
+                <button onclick="showManga(3)">Read Chapter 3</button><br>
+            </section>
+        </div>
+        <div class="content-section">
+            <h1>NARUTO</h1>
+            <fieldset>
+                <legend>Summary</legend>
+                <h3><p class="summary">In the Hidden Leaf Village, a mischievous orphan named Naruto Uzumaki dreams of becoming the Hokage, the strongest ninja and leader of the village. However, he is shunned by the villagers because he carries the Nine-Tailed Fox, a powerful beast sealed inside him at birth.
+                    Determined to prove himself, Naruto joins Team 7 alongside the genius Sasuke Uchiha and the intelligent Sakura Haruno, under the leadership of the legendary ninja Kakashi Hatake. As they embark on dangerous missions, Naruto faces powerful enemies, uncovers hidden secrets about his past, and develops unbreakable bonds with his friends.</p>
+                </h3>            
+            </fieldset>
+            <div id="pdf-container"></div>
+        </div>
+    </div>
+</body>
+</html>
