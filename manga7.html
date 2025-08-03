@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akane-banashi</title>
+    <title>Fullmetal Alchemist</title>
     <link rel="stylesheet" href="manga1.css">
 
     <script>
@@ -13,45 +13,39 @@
         function showManga(chapter) {
             currentChapter = chapter;
             const pdfContainer = document.getElementById('pdf-container');
-            pdfContainer.innerHTML = ''; // Clear previous content
-            pdfContainer.style.display = 'block'; // Show the manga container
+            pdfContainer.innerHTML = '';
+            pdfContainer.style.display = 'block';
 
             let images = [];
 
-            // Manually listing 20 images per chapter
             if (chapter === 1) {
                 images = [
-                    "nar/1.jpg", "nar/2.jpg",
-                    "nar/3.jpg", "nar/4.jpg",
-                    "nar/5.jpg", "nar/6.jpg"
+                    "1.jpg", "2.jpg", "3.jpg",
+                    "4.jpg", "5.jpg", "6.jpg"
                 ];
             } else if (chapter === 2) {
                 images = [
-                    "nar/15.jpg", 
-                    "nar/17.jpg", "nar/18.jpg",
-                    "nar/19.jpg", "nar/20.jpg",
-                    "nar/21.jpg", "nar/22.jpg", "nar/23.jpg",
-                    "nar/24.jpg"
+                    "15.jpg", "17.jpg", "18.jpg",
+                    "19.jpg", "20.jpg", "21.jpg",
+                    "22.jpg", "23.jpg", "24.jpg"
                 ];
             } else if (chapter === 3) {
                 images = [
-                    "nar/29.jpg",  "nar/32.jpg",
-                    "nar/33.jpg", "nar/34.jpg",
-                    "nar/35.jpg"
+                    "29.jpg", "32.jpg", "33.jpg",
+                    "34.jpg", "35.jpg"
                 ];
             }
 
             images.forEach(src => {
                 let img = document.createElement("img");
                 img.src = src;
-                img.alt = `Manga Page`;
+                img.alt = "Manga Page";
                 img.style.width = "100%";
                 img.style.maxWidth = "800px";
                 img.style.margin = "10px auto";
                 pdfContainer.appendChild(img);
             });
 
-            // Add Chapter Navigation Buttons
             const navContainer = document.createElement("div");
             navContainer.style.display = "flex";
             navContainer.style.justifyContent = "space-between";
@@ -76,8 +70,8 @@
 <body>
     <div class="container">
         <div class="image-section">
-            <img src="mangacover/manga7.jpg" alt="Akane-banashi Cover">
-           
+            <img src="manga7.jpg" alt="Fullmetal Alchemist Cover">
+
             <section class="chapters">
                 <button onclick="showManga(1)">Read Chapter 1</button><br><br>
                 <button onclick="showManga(2)">Read Chapter 2</button><br><br>
@@ -88,7 +82,10 @@
             <h1>FULLMETAL ALCHEMIST</h1>
             <fieldset>
                 <legend>Summary</legend>
-                <h3><p class="summary"> In a world where alchemy is the ultimate science, brothers Edward and Alphonse Elric commit the greatest sin—attempting human transmutation to bring their mother back to life. However, their forbidden experiment fails horribly</p>
+                <h3>
+                    <p class="summary">
+                        In a world where alchemy is the ultimate science, brothers Edward and Alphonse Elric commit the greatest sin—attempting human transmutation to bring their mother back to life. However, their forbidden experiment fails horribly, costing Edward an arm and a leg, and trapping Alphonse’s soul in a suit of armor.
+                    </p>
                 </h3>            
             </fieldset>
             <div id="pdf-container"></div>
