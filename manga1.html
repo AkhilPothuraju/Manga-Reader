@@ -13,29 +13,28 @@
         function showManga(chapter) {
             currentChapter = chapter;
             const pdfContainer = document.getElementById('pdf-container');
-            pdfContainer.innerHTML = ''; // Clear previous content
-            pdfContainer.style.display = 'block'; // Show the manga container
+            pdfContainer.innerHTML = '';
+            pdfContainer.style.display = 'block';
 
             let images = [];
 
-            // Manually listing 20 images per chapter
             if (chapter === 1) {
                 images = [
-                    "deathnote/chapter1/dnc1_page-0001.jpg", "deathnote/chapter1/dnc1_page-0002.jpg",
-                    "deathnote/chapter1/dnc1_page-0003.jpg", "deathnote/chapter1/dnc1_page-0004.jpg",
-                    "deathnote/chapter1/dnc1_page-0005.jpg"
+                    "dnc1_page-0001.jpg", "dnc1_page-0002.jpg",
+                    "dnc1_page-0003.jpg", "dnc1_page-0004.jpg",
+                    "dnc1_page-0005.jpg"
                 ];
             } else if (chapter === 2) {
                 images = [
-                    "deathnote/chapter2/dnc1_page-0021.jpg", "deathnote/chapter2/dnc1_page-0022.jpg",
-                    "deathnote/chapter2/dnc1_page-0023.jpg", "deathnote/chapter2/dnc1_page-0024.jpg",
-                    "deathnote/chapter2/dnc1_page-0025.jpg"
+                    "dnc1_page-0021.jpg", "dnc1_page-0022.jpg",
+                    "dnc1_page-0023.jpg", "dnc1_page-0024.jpg",
+                    "dnc1_page-0025.jpg"
                 ];
             } else if (chapter === 3) {
                 images = [
-                    "deathnote/chapter3/dnc1_page-0041.jpg", "deathnote/chapter3/dnc1_page-0042.jpg",
-                    "deathnote/chapter3/dnc1_page-0043.jpg", "deathnote/chapter3/dnc1_page-0044.jpg",
-                    "deathnote/chapter3/dnc1_page-0045.jpg", "deathnote/chapter3/dnc1_page-0046.jpg"
+                    "dnc1_page-0041.jpg", "dnc1_page-0042.jpg",
+                    "dnc1_page-0043.jpg", "dnc1_page-0044.jpg",
+                    "dnc1_page-0045.jpg", "dnc1_page-0046.jpg"
                 ];
             }
 
@@ -49,7 +48,6 @@
                 pdfContainer.appendChild(img);
             });
 
-            // Add Chapter Navigation Buttons
             const navContainer = document.createElement("div");
             navContainer.style.display = "flex";
             navContainer.style.justifyContent = "space-between";
@@ -74,7 +72,7 @@
 <body>
     <div class="container">
         <div class="image-section">
-            <img src="mangacover/manga1.jpg" alt="Deathnote">
+            <img src="manga1.jpg" alt="Deathnote">
             <section class="chapters">
                 <button onclick="showManga(1)">Read Chapter 1</button><br><br>
                 <button onclick="showManga(2)">Read Chapter 2</button><br><br>
@@ -85,7 +83,10 @@
             <h1>DEATHNOTE</h1>
             <fieldset>
                 <legend>Summary</legend>
-                <h3><p class="summary"> In Tokyo, a disaffected high school student named Light Yagami finds the "Death Note", a mysterious black notebook with rules that can end anyone's life in seconds as long as the writer knows both the target's true name and face. Light uses the notebook to kill high-profile criminals and is visited by Ryuk, a shinigami and the Death Note's original owner. Ryuk, invisible to anyone who has not touched the notebook, reveals that he dropped the notebook into the human world out of boredom and is amused by Light's actions.</p>
+                <h3>
+                    <p class="summary">
+                        In Tokyo, a disaffected high school student named Light Yagami finds the "Death Note", a mysterious black notebook with rules that can end anyone's life in seconds as long as the writer knows both the target's true name and face. Light uses the notebook to kill high-profile criminals and is visited by Ryuk, a shinigami and the Death Note's original owner. Ryuk, invisible to anyone who has not touched the notebook, reveals that he dropped the notebook into the human world out of boredom and is amused by Light's actions.
+                    </p>
                 </h3>            
             </fieldset>
             <div id="pdf-container"></div>
