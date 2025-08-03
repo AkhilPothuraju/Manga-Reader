@@ -13,32 +13,28 @@
         function showManga(chapter) {
             currentChapter = chapter;
             const pdfContainer = document.getElementById('pdf-container');
-            pdfContainer.innerHTML = ''; // Clear previous content
-            pdfContainer.style.display = 'block'; // Show the manga container
+            pdfContainer.innerHTML = '';
+            pdfContainer.style.display = 'block';
 
             let images = [];
 
-            // Manually listing 20 images per chapter
             if (chapter === 1) {
                 images = [
-                    "nar/15.jpg", 
-                    "nar/17.jpg", "nar/18.jpg",
-                    "nar/19.jpg", "nar/20.jpg",
-                    "nar/21.jpg", "nar/22.jpg", "nar/23.jpg",
-                    "nar/24.jpg"
+                    "15.jpg", "17.jpg", "18.jpg",
+                    "19.jpg", "20.jpg", "21.jpg",
+                    "22.jpg", "23.jpg", "24.jpg"
                 ];
             } else if (chapter === 2) {
                 images = [
-                "jjk/8.png", "jjk/9.png",
-                    "jjk/10.png", "jjk/11.png",
-                    "jjk/12.png", "jjk/13.png",
-                    "jjk/14.png"
+                    "8.png", "9.png", "10.png",
+                    "11.png", "12.png", "13.png",
+                    "14.png"
                 ];
             } else if (chapter === 3) {
                 images = [
-                    "deathnote/chapter3/dnc1_page-0041.jpg", "deathnote/chapter3/dnc1_page-0042.jpg",
-                    "deathnote/chapter3/dnc1_page-0043.jpg", "deathnote/chapter3/dnc1_page-0044.jpg",
-                    "deathnote/chapter3/dnc1_page-0045.jpg"
+                    "dnc1_page-0041.jpg", "dnc1_page-0042.jpg",
+                    "dnc1_page-0043.jpg", "dnc1_page-0044.jpg",
+                    "dnc1_page-0045.jpg"
                 ];
             }
 
@@ -52,7 +48,6 @@
                 pdfContainer.appendChild(img);
             });
 
-            // Add Chapter Navigation Buttons
             const navContainer = document.createElement("div");
             navContainer.style.display = "flex";
             navContainer.style.justifyContent = "space-between";
@@ -77,7 +72,7 @@
 <body>
     <div class="container">
         <div class="image-section">
-            <img src="mangacover/manga2.jpg" alt="DemonSlayer">
+            <img src="manga2.jpg" alt="Demon Slayer">
             
             <section class="chapters">
                 <button onclick="showManga(1)">Read Chapter 1</button><br><br>
@@ -89,7 +84,10 @@
             <h1>DEMON SLAYER</h1>
             <fieldset>
                 <legend>Summary</legend>
-                <h3><p class="summary"> In Taisho-era Japan, a kind-hearted boy named Tanjiro Kamado lives peacefully with his family. One tragic day, he returns home to find his entire family slaughtered by demons, with his sister Nezuko the only survivor—who has been turned into a demon herself. Determined to save her and avenge his family, Tanjiro joins the Demon Slayer Corps, a secret organization dedicated to hunting down demons.
+                <h3>
+                    <p class="summary">
+                        In Taisho-era Japan, a kind-hearted boy named Tanjiro Kamado lives peacefully with his family. One tragic day, he returns home to find his entire family slaughtered by demons, with his sister Nezuko the only survivor—who has been turned into a demon herself. Determined to save her and avenge his family, Tanjiro joins the Demon Slayer Corps, a secret organization dedicated to hunting down demons.
+                    </p>
                 </h3>            
             </fieldset>
             <div id="pdf-container"></div>
